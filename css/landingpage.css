@@ -1,0 +1,40 @@
+.slogan-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+}
+
+h1 {
+    font-family: var(--font-body);
+    color: var(--text-primary); 
+    font-size: clamp(2rem, 2vw, 5rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.text-music {
+    font-family: var(--font-heading);
+    color: var(--accent-secondary); 
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-style: italic; 
+}
+
+.text-exploitation {
+    font-family: var(--font-heading);
+    color: var(--accent-primary);
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-style: italic;
+    display: inline-block;
+    transform: rotate(180deg);
+    margin-top: 0.5rem;
+}
+
+.text-art-of {
+    display: inline-block;
+    transform: rotate(180deg);
+    margin-top: 0.5rem;
+}
