@@ -1,3 +1,5 @@
+import './theme.js';
+
 const hamburger = document.querySelector('.nav-hamburger');
 const menu = document.querySelector('.mobile-menu');
 

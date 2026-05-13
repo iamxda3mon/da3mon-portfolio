@@ -11,6 +11,12 @@
     --font-body: 'Inter', sans-serif;
 }
 
+[data-theme="light"] {
+    --text-primary: #2C1F08;
+    --bg-primary: #E8D5A0;
+    --bg-secondary: #D8C48A;
+}
+
 * {
     margin: 0;
     padding: 0;
