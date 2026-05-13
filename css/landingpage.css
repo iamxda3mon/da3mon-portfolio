@@ -43,3 +43,14 @@ h1 {
     transform: rotate(180deg);
     margin-top: 0.5rem;
 }
+
+@media (max-width: 639px) {
+    .slogan-center {
+        padding: 0 1.5rem;
+    }
+
+    .text-music,
+    .text-exploitation {
+        font-size: min(11vw, 4rem);
+    }
+}

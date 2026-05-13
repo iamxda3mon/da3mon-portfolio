@@ -54,3 +54,28 @@
 .security-cta:hover {
     opacity: 0.6;
 }
+
+@media (max-width: 639px) {
+    #security {
+        justify-content: flex-start;
+        padding: 0 1.5rem;
+    }
+
+    .security-hero {
+        text-align: left;
+    }
+
+    .security-title {
+        font-size: min(11vw, 4rem);
+    }
+
+    .security-tagline {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    #security {
+        padding: 0 6vw;
+    }
+}

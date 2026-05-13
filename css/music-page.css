@@ -330,3 +330,44 @@
 .streaming-link:hover {
     opacity: 0.6;
 }
+
+/* ── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 639px) {
+    .music-page-hero {
+        padding: 0 1.5rem;
+    }
+
+    .music-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .music-section-header {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .music-section-label {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .release-list,
+    .booking-list {
+        grid-template-columns: 1fr;
+    }
+
+    .streaming-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .music-section {
+        padding: 5rem 6vw;
+    }
+
+    .release-list,
+    .booking-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

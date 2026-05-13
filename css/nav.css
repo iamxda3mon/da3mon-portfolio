@@ -64,3 +64,18 @@
     color: var(--accent-primary);
     letter-spacing: 0.25rem;
 }
+
+@media (max-width: 639px) {
+    .main-navbar {
+        padding: 0 1.25rem;
+    }
+
+    .nav-group-right {
+        gap: 1.25rem;
+    }
+
+    .nav-link {
+        font-size: 0.7rem;
+        letter-spacing: 0.08rem;
+    }
+}

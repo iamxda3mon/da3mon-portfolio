@@ -134,3 +134,35 @@ body.music-list {
 .list-empty.is-visible {
     display: block;
 }
+
+/* ── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 639px) {
+    .list-page-header {
+        padding: 5rem 1.5rem 3rem;
+    }
+
+    .list-controls {
+        padding: 2rem 1.5rem;
+    }
+
+    .list-grid {
+        padding: 3rem 1.5rem 6rem;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .list-page-header {
+        padding: 6rem 6vw 4rem;
+    }
+
+    .list-controls {
+        padding: 2.5rem 6vw;
+    }
+
+    .list-grid {
+        padding: 4rem 6vw 8rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
