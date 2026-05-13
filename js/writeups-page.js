@@ -1,3 +1,5 @@
+import './nav.js';
+
 const search = document.getElementById('search');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.writeup-card');

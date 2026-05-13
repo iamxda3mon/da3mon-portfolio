@@ -65,17 +65,121 @@
     letter-spacing: 0.25rem;
 }
 
+/* --- Hamburger button -------------------------------- */
+
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background-color: var(--text-primary);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav-hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* --- Mobile menu drawer ------------------------------ */
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 3.5rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    background-color: var(--bg-primary);
+    border-top: 1px solid color-mix(in srgb, var(--bg-secondary), transparent 20%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.75rem);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0s;
+}
+
+.mobile-link {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.mobile-link:hover {
+    color: var(--accent-primary);
+}
+
+/* --- Breakpoint: tablet and phone ------------------- */
+
+@media (max-width: 1023px) {
+    .nav-group-right {
+        display: none;
+    }
+
+    .nav-hamburger {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+}
+
+/* --- Breakpoint: phone ------------------------------ */
+
 @media (max-width: 639px) {
     .main-navbar {
         padding: 0 1.25rem;
     }
 
-    .nav-group-right {
-        gap: 1.25rem;
-    }
-
     .nav-link {
         font-size: 0.7rem;
         letter-spacing: 0.08rem;
+    }
+}
+
+/* --- Reduced motion --------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-hamburger span,
+    .mobile-menu {
+        transition: none;
+    }
+
+    .mobile-menu {
+        transform: none;
     }
 }
