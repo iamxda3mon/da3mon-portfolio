@@ -16,6 +16,30 @@
     letter-spacing: 0.05em;
 }
 
+.footer-icons {
+    display: flex;
+    gap: 1.1rem;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.footer-icon-link {
+    display: block;
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
+    line-height: 0;
+}
+
+.footer-icon-link:hover {
+    opacity: 1;
+}
+
+.footer-icon-link img {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: block;
+}
+
 .footer-nav {
     display: flex;
     gap: 2rem;
@@ -46,7 +70,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .footer-link {
+    .footer-link,
+    .footer-icon-link {
         transition: none;
     }
 }
