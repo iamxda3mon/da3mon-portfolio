@@ -1,0 +1,126 @@
+.list-page-header {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 6rem 8vw 4rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--bg-secondary), transparent 30%);
+}
+
+.list-page-back {
+    font-family: var(--font-heading);
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    border-bottom: 1px solid var(--accent-primary);
+    padding-bottom: 0.2em;
+    align-self: flex-start;
+    margin-bottom: 2.5rem;
+    transition: opacity 0.2s ease;
+}
+
+.list-page-back:hover {
+    opacity: 0.6;
+}
+
+.list-page-eyebrow {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.list-page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    color: var(--accent-primary);
+    line-height: 0.9;
+}
+
+/* ── Search + Filter bar ────────────────────────────── */
+
+.list-controls {
+    padding: 2.5rem 8vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--bg-secondary), transparent 30%);
+}
+
+.list-search {
+    background: none;
+    border: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--text-primary), transparent 60%);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.list-search::placeholder {
+    color: color-mix(in srgb, var(--text-primary), transparent 55%);
+}
+
+.list-search:focus {
+    border-color: var(--accent-primary);
+}
+
+.list-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid color-mix(in srgb, var(--text-primary), transparent 60%);
+    color: color-mix(in srgb, var(--text-primary), transparent 30%);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.filter-btn.is-active {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background-color: color-mix(in srgb, var(--accent-primary), transparent 88%);
+}
+
+/* ── Card grid ──────────────────────────────────────── */
+
+.list-grid {
+    padding: 4rem 8vw 8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.list-empty {
+    grid-column: 1 / -1;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: color-mix(in srgb, var(--text-primary), transparent 50%);
+    padding: 4rem 0;
+    display: none;
+}
+
+.list-empty.is-visible {
+    display: block;
+}

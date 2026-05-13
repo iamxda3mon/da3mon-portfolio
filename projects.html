@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — da3mon</title>
+  <meta name="description" content="All open-source projects and tools by Zacharias Priller." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&display=swap" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/security-page.css" />
+  <link rel="stylesheet" href="css/list-page.css" />
+</head>
+
+<body>
+
+  <header class="main-navbar">
+    <a href="index.html#landing" class="nav-link nav-home">
+      <div class="home-wrapper">
+        <span class="text-top">Home</span>
+        <span class="text-bottom">da3mon</span>
+      </div>
+    </a>
+    <div class="nav-group-right">
+      <a href="#" class="nav-link nav-about">About</a>
+      <a href="mailto:contact@zachpriller.com" class="nav-link nav-contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="list-page-header">
+      <a href="security.html" class="list-page-back">← Exploitation</a>
+      <span class="list-page-eyebrow">Open Source</span>
+      <h1 class="list-page-title">Projects</h1>
+    </div>
+
+    <div class="list-controls">
+      <input
+        class="list-search"
+        id="search"
+        type="search"
+        placeholder="Search projects…"
+        autocomplete="off"
+      />
+      <div class="list-filters" role="group" aria-label="Filter by language">
+        <button class="filter-btn is-active" data-lang="all">All</button>
+        <button class="filter-btn" data-lang="python">Python</button>
+        <button class="filter-btn" data-lang="c">C</button>
+        <button class="filter-btn" data-lang="html">HTML</button>
+      </div>
+    </div>
+
+    <div class="list-grid" id="grid">
+
+      <div class="github-card" data-lang="html">
+        <span class="github-card-name">da3mon-portfolio</span>
+        <p class="github-card-desc">Personal portfolio site — two worlds, one axis. Vanilla HTML/CSS/JS with Three.js and GSAP.</p>
+        <div class="github-card-meta">
+          <span class="github-lang">
+            <span class="github-lang-dot" data-lang="html"></span>
+            HTML
+          </span>
+          <span class="github-stars">★ 3</span>
+        </div>
+        <a href="https://github.com/iamxda3mon/da3mon-portfolio" class="github-link" target="_blank" rel="noopener">View →</a>
+      </div>
+
+      <div class="github-card" data-lang="python">
+        <span class="github-card-name">ctf-writeups</span>
+        <p class="github-card-desc">Solutions and notes for CTF challenges — binary exploitation, web, crypto, and reverse engineering.</p>
+        <div class="github-card-meta">
+          <span class="github-lang">
+            <span class="github-lang-dot" data-lang="python"></span>
+            Python
+          </span>
+          <span class="github-stars">★ 7</span>
+        </div>
+        <a href="#" class="github-link">View →</a>
+      </div>
+
+      <div class="github-card" data-lang="c">
+        <span class="github-card-name">fuzzer-core</span>
+        <p class="github-card-desc">Lightweight mutation-based fuzzer inspired by AFL. Coverage-guided feedback loop with a minimal dependency footprint.</p>
+        <div class="github-card-meta">
+          <span class="github-lang">
+            <span class="github-lang-dot" data-lang="c"></span>
+            C
+          </span>
+          <span class="github-stars">★ 12</span>
+        </div>
+        <a href="#" class="github-link">View →</a>
+      </div>
+
+      <div class="github-card" data-lang="python">
+        <span class="github-card-name">pwnscripts</span>
+        <p class="github-card-desc">Helper library for binary exploitation — wrappers around pwntools for common ret2libc, ROP, and format string primitives.</p>
+        <div class="github-card-meta">
+          <span class="github-lang">
+            <span class="github-lang-dot" data-lang="python"></span>
+            Python
+          </span>
+          <span class="github-stars">★ 5</span>
+        </div>
+        <a href="#" class="github-link">View →</a>
+      </div>
+
+      <div class="github-card" data-lang="python">
+        <span class="github-card-name">web-recon</span>
+        <p class="github-card-desc">Automated reconnaissance tool — subdomain enumeration, port scanning, and header fingerprinting in a single pipeline.</p>
+        <div class="github-card-meta">
+          <span class="github-lang">
+            <span class="github-lang-dot" data-lang="python"></span>
+            Python
+          </span>
+          <span class="github-stars">★ 9</span>
+        </div>
+        <a href="#" class="github-link">View →</a>
+      </div>
+
+      <div class="github-card" data-lang="c">
+        <span class="github-card-name">kernel-notes</span>
+        <p class="github-card-desc">Annotated proof-of-concepts for kernel exploitation techniques — heap grooming, UAF, and privilege escalation via LPE primitives.</p>
+        <div class="github-card-meta">
+          <span class="github-lang">
+            <span class="github-lang-dot" data-lang="c"></span>
+            C
+          </span>
+          <span class="github-stars">★ 21</span>
+        </div>
+        <a href="#" class="github-link">View →</a>
+      </div>
+
+      <p class="list-empty" id="empty">No projects match your search.</p>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="js/projects-page.js"></script>
+</body>
+
+</html>

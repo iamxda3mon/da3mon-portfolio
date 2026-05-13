@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exploitation — da3mon</title>
+  <meta name="description" content="Vulnerability research, CTF write-ups, and offensive security by Zacharias Priller." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Exploitation — da3mon" />
+  <meta property="og:description" content="Vulnerability research, CTF write-ups, and offensive security by Zacharias Priller." />
+  <meta property="og:url" content="https://da3mon.io/security" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&display=swap" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/security-page.css" />
+</head>
+
+<body>
+
+  <header class="main-navbar">
+    <a href="index.html#landing" class="nav-link nav-home">
+      <div class="home-wrapper">
+        <span class="text-top">Home</span>
+        <span class="text-bottom">da3mon</span>
+      </div>
+    </a>
+    <div class="nav-group-right">
+      <a href="#" class="nav-link nav-about">About</a>
+      <a href="mailto:contact@zachpriller.com" class="nav-link nav-contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ─────────────────────────────────────── -->
+    <section class="sec-page-hero">
+      <span class="sec-page-eyebrow">Art of</span>
+      <h1 class="sec-page-title">Exploitation</h1>
+      <p class="sec-page-tagline">Vulnerability research, CTF write-ups, and offensive security from the underground.</p>
+      <a href="index.html#security" class="sec-page-back">← Back</a>
+    </section>
+
+    <!-- ── Platform Profiles ─────────────────────────── -->
+    <section class="sec-section">
+      <div class="sec-section-header">
+        <h2 class="sec-section-label">Platforms</h2>
+      </div>
+      <div class="platform-list">
+
+        <div class="platform-card reveal">
+          <div class="platform-card-header">
+            <span class="platform-name">HackTheBox</span>
+            <span class="platform-handle">@da3mon</span>
+          </div>
+          <div class="platform-stats">
+            <div>
+              <span class="platform-stat-value">18</span>
+              <span class="platform-stat-label">Machines</span>
+            </div>
+            <div>
+              <span class="platform-stat-value">1240</span>
+              <span class="platform-stat-label">Points</span>
+            </div>
+          </div>
+          <span class="platform-rank">Rank: Hacker</span>
+          <a href="#" class="platform-link">View Profile →</a>
+        </div>
+
+        <div class="platform-card reveal">
+          <div class="platform-card-header">
+            <span class="platform-name">TryHackMe</span>
+            <span class="platform-handle">@da3mon</span>
+          </div>
+          <div class="platform-stats">
+            <div>
+              <span class="platform-stat-value">42</span>
+              <span class="platform-stat-label">Rooms</span>
+            </div>
+            <div>
+              <span class="platform-stat-value">4800</span>
+              <span class="platform-stat-label">Points</span>
+            </div>
+          </div>
+          <span class="platform-rank">Rank: 0x6 Hacker</span>
+          <a href="#" class="platform-link">View Profile →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Write-ups ─────────────────────────────────── -->
+    <section class="sec-section">
+      <div class="sec-section-header">
+        <h2 class="sec-section-label">Write-ups</h2>
+        <a href="writeups.html" class="sec-section-viewall">View all →</a>
+      </div>
+      <div class="writeup-list">
+
+        <article class="writeup-card reveal" data-tag="ctf">
+          <span class="writeup-tag">CTF</span>
+          <h3 class="writeup-title">Bypassing ASLR via Format String Leak</h3>
+          <time class="writeup-date" datetime="2026-03-22">2026-03-22</time>
+          <p class="writeup-excerpt">Exploiting a printf vulnerability to leak a libc base address, then chaining a ret2libc payload to pop a shell. HackTheBox — Binary Exploitation track.</p>
+          <a href="#" class="writeup-link">Read →</a>
+        </article>
+
+        <article class="writeup-card reveal" data-tag="ctf">
+          <span class="writeup-tag">CTF</span>
+          <h3 class="writeup-title">SQL Injection to RCE via File Write</h3>
+          <time class="writeup-date" datetime="2026-02-14">2026-02-14</time>
+          <p class="writeup-excerpt">Chaining a UNION-based injection with MySQL's INTO OUTFILE to write a webshell, escalating from database access to remote code execution.</p>
+          <a href="#" class="writeup-link">Read →</a>
+        </article>
+
+        <article class="writeup-card reveal" data-tag="research">
+          <span class="writeup-tag">Research</span>
+          <h3 class="writeup-title">Heap Spray in a Custom Allocator</h3>
+          <time class="writeup-date" datetime="2026-01-08">2026-01-08</time>
+          <p class="writeup-excerpt">Analysing a non-standard heap implementation for use-after-free primitives and constructing a reliable spray technique against ASLR + NX.</p>
+          <a href="#" class="writeup-link">Read →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── GitHub Projects ───────────────────────────── -->
+    <section class="sec-section">
+      <div class="sec-section-header">
+        <h2 class="sec-section-label">Projects</h2>
+        <a href="projects.html" class="sec-section-viewall">View all →</a>
+      </div>
+      <div class="github-list">
+
+        <div class="github-card reveal" data-lang="html">
+          <span class="github-card-name">da3mon-portfolio</span>
+          <p class="github-card-desc">Personal portfolio site — two worlds, one axis. Vanilla HTML/CSS/JS with Three.js and GSAP.</p>
+          <div class="github-card-meta">
+            <span class="github-lang">
+              <span class="github-lang-dot" data-lang="html"></span>
+              HTML
+            </span>
+            <span class="github-stars">★ 3</span>
+          </div>
+          <a href="https://github.com/iamxda3mon/da3mon-portfolio" class="github-link" target="_blank" rel="noopener">View →</a>
+        </div>
+
+        <div class="github-card reveal" data-lang="python">
+          <span class="github-card-name">ctf-writeups</span>
+          <p class="github-card-desc">Solutions and notes for CTF challenges — binary exploitation, web, crypto, and reverse engineering.</p>
+          <div class="github-card-meta">
+            <span class="github-lang">
+              <span class="github-lang-dot" data-lang="python"></span>
+              Python
+            </span>
+            <span class="github-stars">★ 7</span>
+          </div>
+          <a href="#" class="github-link">View →</a>
+        </div>
+
+        <div class="github-card reveal" data-lang="c">
+          <span class="github-card-name">fuzzer-core</span>
+          <p class="github-card-desc">Lightweight mutation-based fuzzer inspired by AFL. Coverage-guided feedback loop with a minimal dependency footprint.</p>
+          <div class="github-card-meta">
+            <span class="github-lang">
+              <span class="github-lang-dot" data-lang="c"></span>
+              C
+            </span>
+            <span class="github-stars">★ 12</span>
+          </div>
+          <a href="#" class="github-link">View →</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/security-page.js"></script>
+</body>
+
+</html>
