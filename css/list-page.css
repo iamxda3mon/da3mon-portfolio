@@ -1,3 +1,13 @@
+/* --list-accent defaults to gold (security side).
+   Add class="music-list" to <body> to switch to orange. */
+:root {
+    --list-accent: var(--accent-primary);
+}
+
+body.music-list {
+    --list-accent: var(--accent-secondary);
+}
+
 .list-page-header {
     min-height: 40vh;
     display: flex;
@@ -12,8 +22,8 @@
     font-size: clamp(0.85rem, 1.2vw, 1rem);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent-primary);
-    border-bottom: 1px solid var(--accent-primary);
+    color: var(--list-accent);
+    border-bottom: 1px solid var(--list-accent);
     padding-bottom: 0.2em;
     align-self: flex-start;
     margin-bottom: 2.5rem;
@@ -37,7 +47,7 @@
 .list-page-title {
     font-family: var(--font-heading);
     font-size: clamp(3.5rem, 8vw, 6rem);
-    color: var(--accent-primary);
+    color: var(--list-accent);
     line-height: 0.9;
 }
 
@@ -69,7 +79,7 @@
 }
 
 .list-search:focus {
-    border-color: var(--accent-primary);
+    border-color: var(--list-accent);
 }
 
 .list-filters {
@@ -93,14 +103,14 @@
 }
 
 .filter-btn:hover {
-    border-color: var(--accent-primary);
-    color: var(--accent-primary);
+    border-color: var(--list-accent);
+    color: var(--list-accent);
 }
 
 .filter-btn.is-active {
-    border-color: var(--accent-primary);
-    color: var(--accent-primary);
-    background-color: color-mix(in srgb, var(--accent-primary), transparent 88%);
+    border-color: var(--list-accent);
+    color: var(--list-accent);
+    background-color: color-mix(in srgb, var(--list-accent), transparent 88%);
 }
 
 /* ── Card grid ──────────────────────────────────────── */
