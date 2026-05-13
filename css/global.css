@@ -13,10 +13,8 @@
 
 [data-theme="light"] {
     --text-primary: #2C1F08;
-    --bg-primary: #F5EDD8;
-    --bg-secondary: #E8DCC8;
-    --accent-primary: #7A5A08;
-    --accent-secondary: #7A3808;
+    --bg-primary: #E8D5A0;
+    --bg-secondary: #D8C48A;
 }
 
 * {
