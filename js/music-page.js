@@ -1,3 +1,5 @@
+import './nav.js';
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!reducedMotion) {
