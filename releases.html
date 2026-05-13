@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Releases — da3mon</title>
+  <meta name="description" content="All releases and productions by Zacharias Priller." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&display=swap" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/music-page.css" />
+  <link rel="stylesheet" href="css/list-page.css" />
+</head>
+
+<body class="music-list">
+
+  <header class="main-navbar">
+    <a href="index.html#landing" class="nav-link nav-home">
+      <div class="home-wrapper">
+        <span class="text-top">Home</span>
+        <span class="text-bottom">da3mon</span>
+      </div>
+    </a>
+    <div class="nav-group-right">
+      <a href="#" class="nav-link nav-about">About</a>
+      <a href="mailto:contact@zachpriller.com" class="nav-link nav-contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="list-page-header">
+      <a href="music.html" class="list-page-back">← Music</a>
+      <span class="list-page-eyebrow">Pulse of</span>
+      <h1 class="list-page-title">Releases</h1>
+    </div>
+
+    <div class="list-controls">
+      <input
+        class="list-search"
+        id="search"
+        type="search"
+        placeholder="Search releases…"
+        autocomplete="off"
+      />
+      <div class="list-filters" role="group" aria-label="Filter by genre">
+        <button class="filter-btn is-active" data-genre="all">All</button>
+        <button class="filter-btn" data-genre="electronic">Electronic</button>
+        <button class="filter-btn" data-genre="ambient">Ambient</button>
+        <button class="filter-btn" data-genre="dnb">Drum & Bass</button>
+        <button class="filter-btn" data-genre="techno">Techno</button>
+      </div>
+    </div>
+
+    <div class="list-grid" id="grid">
+
+      <article class="release-card" data-genre="electronic">
+        <span class="release-type">EP</span>
+        <h2 class="release-title">Subterranean</h2>
+        <div class="release-meta">
+          <span class="release-genre">Electronic / Industrial</span>
+          <time class="release-date" datetime="2026-02-10">2026-02-10</time>
+        </div>
+        <p class="release-desc">Four-track exploration of industrial texture and sub-bass pressure. Recorded and produced entirely in the box.</p>
+        <a href="#" class="release-link">Listen →</a>
+      </article>
+
+      <article class="release-card" data-genre="ambient">
+        <span class="release-type">Single</span>
+        <h2 class="release-title">Void Signal</h2>
+        <div class="release-meta">
+          <span class="release-genre">Ambient / Dark</span>
+          <time class="release-date" datetime="2025-12-01">2025-12-01</time>
+        </div>
+        <p class="release-desc">Slow-moving drone layers over a degraded drum machine pulse. Inspired by late-night network traffic logs.</p>
+        <a href="#" class="release-link">Listen →</a>
+      </article>
+
+      <article class="release-card" data-genre="dnb">
+        <span class="release-type">Single</span>
+        <h2 class="release-title">Fracture Point</h2>
+        <div class="release-meta">
+          <span class="release-genre">Drum & Bass</span>
+          <time class="release-date" datetime="2025-09-14">2025-09-14</time>
+        </div>
+        <p class="release-desc">174 BPM roller with a Reese bass built from a detuned sawtooth stack and heavy saturation.</p>
+        <a href="#" class="release-link">Listen →</a>
+      </article>
+
+      <article class="release-card" data-genre="electronic">
+        <span class="release-type">Album</span>
+        <h2 class="release-title">Deep Trace</h2>
+        <div class="release-meta">
+          <span class="release-genre">Electronic</span>
+          <time class="release-date" datetime="2025-07-22">2025-07-22</time>
+        </div>
+        <p class="release-desc">Full-length debut. Ten tracks moving from atmospheric intros through dense mid-range percussion into low-end resolution.</p>
+        <a href="#" class="release-link">Listen →</a>
+      </article>
+
+      <article class="release-card" data-genre="techno">
+        <span class="release-type">Single</span>
+        <h2 class="release-title">Recursion</h2>
+        <div class="release-meta">
+          <span class="release-genre">Techno</span>
+          <time class="release-date" datetime="2025-04-05">2025-04-05</time>
+        </div>
+        <p class="release-desc">Stripped-back 136 BPM techno cut. Kick built from a layered sine sweep and white noise, no samples.</p>
+        <a href="#" class="release-link">Listen →</a>
+      </article>
+
+      <article class="release-card" data-genre="ambient">
+        <span class="release-type">EP</span>
+        <h2 class="release-title">Static Bloom</h2>
+        <div class="release-meta">
+          <span class="release-genre">Experimental / Ambient</span>
+          <time class="release-date" datetime="2025-01-18">2025-01-18</time>
+        </div>
+        <p class="release-desc">Three long-form pieces built from granular synthesis and field recordings. No tempo, no grid.</p>
+        <a href="#" class="release-link">Listen →</a>
+      </article>
+
+      <p class="list-empty" id="empty">No releases match your search.</p>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="js/releases-page.js"></script>
+</body>
+
+</html>
