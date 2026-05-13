@@ -51,3 +51,19 @@
 .music-cta:hover {
     opacity: 0.6;
 }
+
+@media (max-width: 639px) {
+    #music {
+        padding: 0 1.5rem;
+    }
+
+    .music-title {
+        font-size: min(11vw, 4rem);
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    #music {
+        padding: 0 6vw;
+    }
+}

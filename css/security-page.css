@@ -346,3 +346,52 @@
 .platform-link:hover {
     opacity: 0.6;
 }
+
+/* ── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 639px) {
+    .sec-page-hero {
+        padding: 0 1.5rem;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .sec-page-tagline {
+        margin-left: 0;
+    }
+
+    .sec-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .sec-section-header {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .sec-section-label {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .writeup-list,
+    .github-list,
+    .booking-list {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .sec-section {
+        padding: 5rem 6vw;
+    }
+
+    .writeup-list,
+    .github-list,
+    .booking-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
