@@ -1,0 +1,53 @@
+#music {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 8vw;
+}
+
+.music-hero {
+    max-width: 700px;
+}
+
+.music-eyebrow {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.music-title {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 10vw, 7rem);
+    color: var(--accent-secondary);
+    line-height: 0.9;
+    margin-bottom: 2rem;
+}
+
+.music-tagline {
+    font-family: var(--font-heading);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: var(--text-primary);
+    max-width: 40ch;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.music-cta {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-secondary);
+    border-bottom: 1px solid var(--accent-secondary);
+    padding-bottom: 0.2em;
+    transition: opacity 0.2s ease;
+}
+
+.music-cta:hover {
+    opacity: 0.6;
+}
