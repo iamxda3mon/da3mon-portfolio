@@ -1,0 +1,107 @@
+html {
+    scroll-snap-type: none;
+}
+
+.legal-hero {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 8vw 4rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--bg-secondary), transparent 30%);
+}
+
+.legal-eyebrow {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--text-primary), transparent 40%);
+    margin-bottom: 0.5rem;
+}
+
+.legal-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    color: var(--text-primary);
+    line-height: 0.9;
+}
+
+.legal-body {
+    padding: 5rem 8vw 7rem;
+    max-width: calc(72ch + 16vw);
+}
+
+.legal-body h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: var(--text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.legal-body h2:first-child {
+    margin-top: 0;
+}
+
+.legal-body p,
+.legal-body address {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: color-mix(in srgb, var(--text-primary), transparent 20%);
+    margin-bottom: 0.6rem;
+    font-style: normal;
+}
+
+.legal-body ul {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: color-mix(in srgb, var(--text-primary), transparent 20%);
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.legal-body a {
+    color: var(--accent-primary);
+    border-bottom: 1px solid color-mix(in srgb, var(--accent-primary), transparent 55%);
+    transition: opacity 0.2s ease;
+}
+
+.legal-body a:hover {
+    opacity: 0.65;
+}
+
+.legal-divider {
+    border: none;
+    border-top: 1px solid color-mix(in srgb, var(--bg-secondary), transparent 30%);
+    margin: 2.5rem 0;
+}
+
+@media (max-width: 639px) {
+    .legal-hero {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .legal-body {
+        padding: 3.5rem 1.5rem 5rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .legal-hero {
+        padding: 7rem 6vw 3.5rem;
+    }
+
+    .legal-body {
+        padding: 4rem 6vw 6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .legal-body a {
+        transition: none;
+    }
+}
