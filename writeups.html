@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Write-ups — da3mon</title>
+  <meta name="description" content="All CTF write-ups and security research by Zacharias Priller." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&display=swap" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/security-page.css" />
+  <link rel="stylesheet" href="css/list-page.css" />
+</head>
+
+<body>
+
+  <header class="main-navbar">
+    <a href="index.html#landing" class="nav-link nav-home">
+      <div class="home-wrapper">
+        <span class="text-top">Home</span>
+        <span class="text-bottom">da3mon</span>
+      </div>
+    </a>
+    <div class="nav-group-right">
+      <a href="#" class="nav-link nav-about">About</a>
+      <a href="mailto:contact@zachpriller.com" class="nav-link nav-contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="list-page-header">
+      <a href="security.html" class="list-page-back">← Exploitation</a>
+      <span class="list-page-eyebrow">Art of</span>
+      <h1 class="list-page-title">Write-ups</h1>
+    </div>
+
+    <div class="list-controls">
+      <input
+        class="list-search"
+        id="search"
+        type="search"
+        placeholder="Search write-ups…"
+        autocomplete="off"
+      />
+      <div class="list-filters" role="group" aria-label="Filter by category">
+        <button class="filter-btn is-active" data-tag="all">All</button>
+        <button class="filter-btn" data-tag="ctf">CTF</button>
+        <button class="filter-btn" data-tag="research">Research</button>
+        <button class="filter-btn" data-tag="cve">CVE</button>
+      </div>
+    </div>
+
+    <div class="list-grid" id="grid">
+
+      <article class="writeup-card" data-tag="ctf">
+        <span class="writeup-tag">CTF</span>
+        <h2 class="writeup-title">Bypassing ASLR via Format String Leak</h2>
+        <time class="writeup-date" datetime="2026-03-22">2026-03-22</time>
+        <p class="writeup-excerpt">Exploiting a printf vulnerability to leak a libc base address, then chaining a ret2libc payload to pop a shell. HackTheBox — Binary Exploitation track.</p>
+        <a href="#" class="writeup-link">Read →</a>
+      </article>
+
+      <article class="writeup-card" data-tag="ctf">
+        <span class="writeup-tag">CTF</span>
+        <h2 class="writeup-title">SQL Injection to RCE via File Write</h2>
+        <time class="writeup-date" datetime="2026-02-14">2026-02-14</time>
+        <p class="writeup-excerpt">Chaining a UNION-based injection with MySQL's INTO OUTFILE to write a webshell, escalating from database access to remote code execution.</p>
+        <a href="#" class="writeup-link">Read →</a>
+      </article>
+
+      <article class="writeup-card" data-tag="research">
+        <span class="writeup-tag">Research</span>
+        <h2 class="writeup-title">Heap Spray in a Custom Allocator</h2>
+        <time class="writeup-date" datetime="2026-01-08">2026-01-08</time>
+        <p class="writeup-excerpt">Analysing a non-standard heap implementation for use-after-free primitives and constructing a reliable spray technique against ASLR + NX.</p>
+        <a href="#" class="writeup-link">Read →</a>
+      </article>
+
+      <article class="writeup-card" data-tag="ctf">
+        <span class="writeup-tag">CTF</span>
+        <h2 class="writeup-title">XXE Injection in a SOAP API</h2>
+        <time class="writeup-date" datetime="2025-11-30">2025-11-30</time>
+        <p class="writeup-excerpt">Abusing XML External Entity injection in a SOAP endpoint to read arbitrary files from the server filesystem and exfiltrate credentials.</p>
+        <a href="#" class="writeup-link">Read →</a>
+      </article>
+
+      <article class="writeup-card" data-tag="ctf">
+        <span class="writeup-tag">CTF</span>
+        <h2 class="writeup-title">Privilege Escalation via SUID Misconfiguration</h2>
+        <time class="writeup-date" datetime="2025-10-15">2025-10-15</time>
+        <p class="writeup-excerpt">Identifying and exploiting a world-executable SUID binary to elevate from a low-privilege shell to root on a Linux target machine.</p>
+        <a href="#" class="writeup-link">Read →</a>
+      </article>
+
+      <article class="writeup-card" data-tag="research">
+        <span class="writeup-tag">Research</span>
+        <h2 class="writeup-title">Side-Channel Timing Attack on JWT Validation</h2>
+        <time class="writeup-date" datetime="2025-09-03">2025-09-03</time>
+        <p class="writeup-excerpt">Demonstrating a timing oracle in a naive HMAC comparison that allows an attacker to forge valid JWT tokens without knowing the secret key.</p>
+        <a href="#" class="writeup-link">Read →</a>
+      </article>
+
+      <p class="list-empty" id="empty">No write-ups match your search.</p>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="js/writeups-page.js"></script>
+</body>
+
+</html>
