@@ -57,6 +57,10 @@
     opacity: 0.6;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .security-cta { transition: none; }
+}
+
 @media (max-width: 639px) {
     #security {
         justify-content: flex-start;

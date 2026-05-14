@@ -76,6 +76,12 @@
     50%       { opacity: 0; }
 }
 
+/* ── Reduced motion ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    #nmap-terminal       { transition: none; }
+    .ts-blink            { animation: none; }
+}
+
 /* ── Responsive ────────────────────────────────────────── */
 
 /* Hide terminal on anything below wide desktop */
