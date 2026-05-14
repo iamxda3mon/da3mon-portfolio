@@ -1,4 +1,6 @@
 import './nav.js';
+import { init as initStats } from './stats.js';
+initStats();
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
