@@ -66,11 +66,13 @@
         placeholder="Search write-ups…"
         autocomplete="off"
       />
-      <div class="list-filters" role="group" aria-label="Filter by category">
-        <button class="filter-btn is-active" data-tag="all">All</button>
-        <button class="filter-btn" data-tag="ctf">CTF</button>
-        <button class="filter-btn" data-tag="research">Research</button>
-        <button class="filter-btn" data-tag="cve">CVE</button>
+      <div class="list-filter-wrap">
+        <select class="list-filter-select" id="filter" aria-label="Filter by category">
+          <option value="all">All</option>
+          <option value="ctf">CTF</option>
+          <option value="research">Research</option>
+          <option value="cve">CVE</option>
+        </select>
       </div>
     </div>
 

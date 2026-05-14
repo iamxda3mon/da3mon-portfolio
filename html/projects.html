@@ -66,11 +66,13 @@
         placeholder="Search projects…"
         autocomplete="off"
       />
-      <div class="list-filters" role="group" aria-label="Filter by language">
-        <button class="filter-btn is-active" data-lang="all">All</button>
-        <button class="filter-btn" data-lang="python">Python</button>
-        <button class="filter-btn" data-lang="c">C</button>
-        <button class="filter-btn" data-lang="html">HTML</button>
+      <div class="list-filter-wrap">
+        <select class="list-filter-select" id="filter" aria-label="Filter by language">
+          <option value="all">All</option>
+          <option value="python">Python</option>
+          <option value="c">C</option>
+          <option value="html">HTML</option>
+        </select>
       </div>
     </div>
 

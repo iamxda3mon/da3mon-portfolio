@@ -1,7 +1,7 @@
 import './nav.js';
 
 const search = document.getElementById('search');
-const filterBtns = document.querySelectorAll('.filter-btn');
+const filterSelect = document.getElementById('filter');
 const cards = document.querySelectorAll('.writeup-card');
 const empty = document.getElementById('empty');
 let activeTag = 'all';
@@ -25,11 +25,7 @@ function applyFilter() {
 
 search.addEventListener('input', applyFilter);
 
-filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach((b) => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        activeTag = btn.dataset.tag;
-        applyFilter();
-    });
+filterSelect.addEventListener('change', () => {
+    activeTag = filterSelect.value;
+    applyFilter();
 });

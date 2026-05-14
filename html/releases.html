@@ -66,12 +66,14 @@
         placeholder="Search releases…"
         autocomplete="off"
       />
-      <div class="list-filters" role="group" aria-label="Filter by genre">
-        <button class="filter-btn is-active" data-genre="all">All</button>
-        <button class="filter-btn" data-genre="electronic">Electronic</button>
-        <button class="filter-btn" data-genre="ambient">Ambient</button>
-        <button class="filter-btn" data-genre="dnb">Drum & Bass</button>
-        <button class="filter-btn" data-genre="techno">Techno</button>
+      <div class="list-filter-wrap">
+        <select class="list-filter-select" id="filter" aria-label="Filter by genre">
+          <option value="all">All</option>
+          <option value="electronic">Electronic</option>
+          <option value="ambient">Ambient</option>
+          <option value="dnb">Drum &amp; Bass</option>
+          <option value="techno">Techno</option>
+        </select>
       </div>
     </div>
 

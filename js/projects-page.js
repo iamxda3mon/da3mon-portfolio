@@ -1,7 +1,7 @@
 import './nav.js';
 
 const search = document.getElementById('search');
-const filterBtns = document.querySelectorAll('.filter-btn');
+const filterSelect = document.getElementById('filter');
 const cards = document.querySelectorAll('.github-card');
 const empty = document.getElementById('empty');
 let activeLang = 'all';
@@ -26,11 +26,7 @@ function applyFilter() {
 
 search.addEventListener('input', applyFilter);
 
-filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach((b) => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        activeLang = btn.dataset.lang;
-        applyFilter();
-    });
+filterSelect.addEventListener('change', () => {
+    activeLang = filterSelect.value;
+    applyFilter();
 });

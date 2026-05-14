@@ -117,6 +117,46 @@ body.music-list {
     background-color: color-mix(in srgb, var(--list-accent), transparent 88%);
 }
 
+.list-filter-wrap {
+    position: relative;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.list-filter-wrap::after {
+    content: '';
+    position: absolute;
+    right: 0.1rem;
+    top: 50%;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-right: 1.5px solid var(--text-primary);
+    border-bottom: 1.5px solid var(--text-primary);
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+}
+
+.list-filter-select {
+    appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--text-primary), transparent 60%);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem 0.5rem 0;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.list-filter-select:focus {
+    border-color: var(--list-accent);
+}
+
 /* ── Card grid ──────────────────────────────────────── */
 
 .list-grid {
