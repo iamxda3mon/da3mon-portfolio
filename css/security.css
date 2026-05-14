@@ -1,4 +1,6 @@
 #security {
+    position: relative;
+    z-index: 1;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -77,5 +79,17 @@
 @media (min-width: 640px) and (max-width: 1023px) {
     #security {
         padding: 0 6vw;
+    }
+}
+
+/* Wide desktop: terminal on left, hero on right */
+@media (min-width: 1100px) {
+    #security {
+        justify-content: space-between;
+        padding: 0 6vw;
+    }
+
+    .security-hero {
+        max-width: 42%;
     }
 }

@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="css/music.css" />
     <link rel="stylesheet" href="css/security.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/terminal.css" />
   </head>
 
   <body data-page="home">
@@ -73,6 +74,18 @@
 
     <main>
       <section id="security" class="security-landing">
+
+        <!-- nmap terminal — visible on wide screens only (≥1100px) -->
+        <div id="nmap-terminal" aria-hidden="true">
+          <div class="term-chrome">
+            <span class="term-dot"></span>
+            <span class="term-dot"></span>
+            <span class="term-dot"></span>
+            <span class="term-title">bash — kali@da3mon — 80×24</span>
+          </div>
+          <div class="term-body" id="term-output"></div>
+        </div>
+
         <div class="security-hero">
           <span class="security-eyebrow" data-i18n="brand.security_eyebrow">Art of</span>
           <h2 class="security-title" data-i18n="brand.security_title">Exploitation</h2>

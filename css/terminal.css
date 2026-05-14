@@ -1,0 +1,84 @@
+/* Nmap terminal window — security section */
+
+#nmap-terminal {
+    width: clamp(340px, 38vw, 500px);
+    background: rgba(13, 12, 10, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(55, 51, 43, 0.5);
+    border-radius: 7px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.55s ease;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+#nmap-terminal.visible {
+    opacity: 0.91;
+}
+
+/* ── Window chrome ─────────────────────────────────────── */
+.term-chrome {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(26, 24, 20, 0.6);
+    border-bottom: 1px solid rgba(55, 51, 43, 0.4);
+}
+
+.term-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    flex-shrink: 0;
+}
+
+.term-title {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    color: #5a5650;
+    letter-spacing: 0.04em;
+}
+
+/* ── Terminal body ─────────────────────────────────────── */
+.term-body {
+    padding: 12px 14px;
+    height: 360px;         /* fixed — window never resizes as lines are added */
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Courier New', monospace;
+    font-size: clamp(0.58rem, 0.85vw, 0.76rem);
+    line-height: 1.65;
+    overflow: hidden;
+    color: #D8B577;        /* always warm cream — readable on dark panel in both themes */
+}
+
+/* ── Row / line types ──────────────────────────────────── */
+.ts-row   { white-space: pre; }
+
+.ts-user  { color: #D07D2E; }
+.ts-sep   { color: #D8B577; }
+
+.ts-dim   { color: rgba(216, 181, 119, 0.45); }
+.ts-hdr   { color: #D29C24; }
+.ts-port  { color: #D8B577; }
+.ts-done  { color: #D29C24; }
+.ts-open  { color: #D07D2E; }
+
+.ts-cursor { color: #D07D2E; margin-left: 1px; }
+.ts-blink  { animation: term-blink 1s step-end infinite; }
+
+@keyframes term-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+/* Hide terminal on anything below wide desktop */
+@media (max-width: 1099px) {
+    #nmap-terminal { display: none; }
+}
