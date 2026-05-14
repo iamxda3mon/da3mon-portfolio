@@ -59,6 +59,15 @@
     color: var(--accent-primary);
 }
 
+/* --- Active page state --- */
+[data-page="about"] .nav-about,
+[data-page="contact"] .nav-contact,
+[data-page="about"] [data-nav="about"],
+[data-page="contact"] [data-nav="contact"] {
+    color: var(--accent-primary);
+    border-bottom: 1px solid var(--accent-primary);
+}
+
 /* --- Hover-Effekte für alle Links --- */
 .nav-link:hover {
     color: var(--accent-primary);
