@@ -1,3 +1,7 @@
+html {
+    scroll-snap-type: none;
+}
+
 /* --list-accent defaults to gold (security side).
    Add class="music-list" to <body> to switch to orange. */
 :root {

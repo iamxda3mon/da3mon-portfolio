@@ -1,3 +1,7 @@
+html {
+    scroll-snap-type: none;
+}
+
 /* ── Hero ───────────────────────────────────────────── */
 
 .sec-page-hero {
