@@ -186,6 +186,10 @@ html {
     max-width: 40rem;
 }
 
+.about-edu-entry + .about-edu-entry {
+    margin-top: 2.5rem;
+}
+
 .about-edu-degree {
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 3vw, 2.2rem);
