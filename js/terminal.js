@@ -118,6 +118,7 @@ function onScroll() {
 }
 
 export function init() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   win    = document.getElementById('nmap-terminal');
   output = document.getElementById('term-output');
   if (!win || !output) return;

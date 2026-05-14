@@ -1,51 +1,41 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// Hero section fade/scale tied directly to scroll position.
+// No GSAP dependency — avoids CDN MIME/CSP issues and keeps parity
+// with the native scroll system already used in axis.js.
 
-gsap.registerPlugin(ScrollTrigger);
+let secHero = null;
+let musHero = null;
+let frameId = null;
+
+function update() {
+  frameId = requestAnimationFrame(update);
+
+  const sy = window.scrollY;
+  const ih = window.innerHeight;
+
+  // Security hero: fully visible at scrollY=0, invisible at scrollY=ih
+  const tSec  = Math.max(0, Math.min(1, sy / ih));
+  secHero.style.opacity   = 1 - tSec;
+  secHero.style.transform = `translateY(${tSec * 28}px) scale(${1 - tSec * 0.04})`;
+
+  // Music hero: invisible at scrollY=ih, fully visible at scrollY=2*ih
+  const tMus  = Math.max(0, Math.min(1, (sy - ih) / ih));
+  musHero.style.opacity   = tMus;
+  musHero.style.transform = `translateY(${(1 - tMus) * -28}px) scale(${0.96 + tMus * 0.04})`;
+}
 
 export function init() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Security hero — fades in as viewport moves up into the section.
-  // Trigger range: scrollY=0 (section fills screen) → scrollY=innerHeight (landing).
-  // fromVars at start (scrollY=0): fully visible.
-  // toVars at end (scrollY=innerHeight): invisible + shifted down.
-  // Reverse scroll (up) therefore reveals the hero.
-  gsap.fromTo('.security-hero',
-    { opacity: 1, y: 0, scale: 1 },
-    {
-      opacity: 0,
-      y: 28,
-      scale: 0.96,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#security',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.5,
-      },
-    }
-  );
+  secHero = document.querySelector('.security-hero');
+  musHero = document.querySelector('.music-hero');
+  if (!secHero || !musHero) return;
 
-  // Music hero — fades in as viewport scrolls down into the section.
-  // Trigger range: scrollY=innerHeight (landing) → scrollY=2*innerHeight (music).
-  gsap.fromTo('.music-hero',
-    { opacity: 0, y: -28, scale: 0.96 },
-    {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#music',
-        start: 'top bottom',
-        end: 'top top',
-        scrub: 0.5,
-      },
-    }
-  );
+  frameId = requestAnimationFrame(update);
 }
 
 export function dispose() {
-  ScrollTrigger.getAll().forEach(t => t.kill());
+  cancelAnimationFrame(frameId);
+  if (secHero) { secHero.style.opacity = ''; secHero.style.transform = ''; }
+  if (musHero) { musHero.style.opacity = ''; musHero.style.transform = ''; }
+  frameId = secHero = musHero = null;
 }

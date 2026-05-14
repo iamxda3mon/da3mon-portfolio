@@ -54,6 +54,10 @@
     opacity: 0.6;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .music-cta { transition: none; }
+}
+
 @media (max-width: 639px) {
     #music {
         padding: 0 1.5rem;
