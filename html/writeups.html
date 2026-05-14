@@ -31,8 +31,8 @@
       </div>
     </a>
     <div class="nav-group-right">
-      <a href="about.html" class="nav-link nav-about">About</a>
-      <a href="contact.html" class="nav-link nav-contact">Contact</a>
+      <a href="about.html" class="nav-link nav-about" data-i18n="nav.about">About</a>
+      <a href="contact.html" class="nav-link nav-contact" data-i18n="nav.contact">Contact</a>
       <button class="theme-toggle" aria-label="Toggle theme">
         <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -46,16 +46,16 @@
   </header>
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <a href="about.html" class="mobile-link" data-nav="about">About</a>
-    <a href="contact.html" class="mobile-link" data-nav="contact">Contact</a>
+    <a href="about.html" class="mobile-link" data-nav="about" data-i18n="mobile.about">About</a>
+    <a href="contact.html" class="mobile-link" data-nav="contact" data-i18n="mobile.contact">Contact</a>
   </div>
 
   <main>
 
     <div class="list-page-header">
-      <a href="security.html" class="list-page-back">← Exploitation</a>
-      <span class="list-page-eyebrow">Art of</span>
-      <h1 class="list-page-title">Write-ups</h1>
+      <a href="security.html" class="list-page-back" data-i18n="writeups.back">← Exploitation</a>
+      <span class="list-page-eyebrow" data-i18n="writeups.eyebrow">Art of</span>
+      <h1 class="list-page-title" data-i18n="writeups.title">Write-ups</h1>
     </div>
 
     <div class="list-controls">
@@ -64,11 +64,12 @@
         id="search"
         type="search"
         placeholder="Search write-ups…"
+        data-i18n-placeholder="writeups.search_placeholder"
         autocomplete="off"
       />
       <div class="list-filter-wrap">
         <select class="list-filter-select" id="filter" aria-label="Filter by category">
-          <option value="all">All</option>
+          <option value="all" data-i18n="filter.all">All</option>
           <option value="ctf">CTF</option>
           <option value="research">Research</option>
           <option value="cve">CVE</option>
@@ -83,7 +84,7 @@
         <h2 class="writeup-title">Bypassing ASLR via Format String Leak</h2>
         <time class="writeup-date" datetime="2026-03-22">2026-03-22</time>
         <p class="writeup-excerpt">Exploiting a printf vulnerability to leak a libc base address, then chaining a ret2libc payload to pop a shell. HackTheBox — Binary Exploitation track.</p>
-        <a href="#" class="writeup-link">Read →</a>
+        <a href="#" class="writeup-link" data-i18n="shared.read">Read →</a>
       </article>
 
       <article class="writeup-card" data-tag="ctf">
@@ -91,7 +92,7 @@
         <h2 class="writeup-title">SQL Injection to RCE via File Write</h2>
         <time class="writeup-date" datetime="2026-02-14">2026-02-14</time>
         <p class="writeup-excerpt">Chaining a UNION-based injection with MySQL's INTO OUTFILE to write a webshell, escalating from database access to remote code execution.</p>
-        <a href="#" class="writeup-link">Read →</a>
+        <a href="#" class="writeup-link" data-i18n="shared.read">Read →</a>
       </article>
 
       <article class="writeup-card" data-tag="research">
@@ -99,7 +100,7 @@
         <h2 class="writeup-title">Heap Spray in a Custom Allocator</h2>
         <time class="writeup-date" datetime="2026-01-08">2026-01-08</time>
         <p class="writeup-excerpt">Analysing a non-standard heap implementation for use-after-free primitives and constructing a reliable spray technique against ASLR + NX.</p>
-        <a href="#" class="writeup-link">Read →</a>
+        <a href="#" class="writeup-link" data-i18n="shared.read">Read →</a>
       </article>
 
       <article class="writeup-card" data-tag="ctf">
@@ -107,7 +108,7 @@
         <h2 class="writeup-title">XXE Injection in a SOAP API</h2>
         <time class="writeup-date" datetime="2025-11-30">2025-11-30</time>
         <p class="writeup-excerpt">Abusing XML External Entity injection in a SOAP endpoint to read arbitrary files from the server filesystem and exfiltrate credentials.</p>
-        <a href="#" class="writeup-link">Read →</a>
+        <a href="#" class="writeup-link" data-i18n="shared.read">Read →</a>
       </article>
 
       <article class="writeup-card" data-tag="ctf">
@@ -115,7 +116,7 @@
         <h2 class="writeup-title">Privilege Escalation via SUID Misconfiguration</h2>
         <time class="writeup-date" datetime="2025-10-15">2025-10-15</time>
         <p class="writeup-excerpt">Identifying and exploiting a world-executable SUID binary to elevate from a low-privilege shell to root on a Linux target machine.</p>
-        <a href="#" class="writeup-link">Read →</a>
+        <a href="#" class="writeup-link" data-i18n="shared.read">Read →</a>
       </article>
 
       <article class="writeup-card" data-tag="research">
@@ -123,17 +124,17 @@
         <h2 class="writeup-title">Side-Channel Timing Attack on JWT Validation</h2>
         <time class="writeup-date" datetime="2025-09-03">2025-09-03</time>
         <p class="writeup-excerpt">Demonstrating a timing oracle in a naive HMAC comparison that allows an attacker to forge valid JWT tokens without knowing the secret key.</p>
-        <a href="#" class="writeup-link">Read →</a>
+        <a href="#" class="writeup-link" data-i18n="shared.read">Read →</a>
       </article>
 
-      <p class="list-empty" id="empty">No write-ups match your search.</p>
+      <p class="list-empty" id="empty" data-i18n="writeups.empty">No write-ups match your search.</p>
 
     </div>
 
   </main>
 
   <footer class="site-footer">
-    <span class="footer-copyright">© 2026 Zacharias Priller</span>
+    <span class="footer-copyright" data-i18n="footer.copyright">© 2026 Zacharias Priller</span>
     <div class="footer-icons">
       <a href="https://github.com/iamxda3mon" class="footer-icon-link" target="_blank" rel="noopener" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/D29C24" alt="" width="18" height="18" /></a>
       <a href="#" class="footer-icon-link" aria-label="HackTheBox"><img src="https://cdn.simpleicons.org/hackthebox/D29C24" alt="" width="18" height="18" /></a>
@@ -144,12 +145,12 @@
       <a href="#" class="footer-icon-link" aria-label="Lichess"><img src="https://cdn.simpleicons.org/lichess/D8B577" alt="" width="18" height="18" /></a>
     </div>
     <nav class="footer-nav">
-      <a href="security.html" class="footer-link">Security</a>
-      <a href="music.html" class="footer-link">Music</a>
-      <a href="about.html" class="footer-link">About</a>
-      <a href="contact.html" class="footer-link">Contact</a>
-      <a href="impressum.html" class="footer-link">Impressum</a>
-      <a href="privacy.html" class="footer-link">Privacy</a>
+      <a href="security.html" class="footer-link" data-i18n="footer.security">Security</a>
+      <a href="music.html" class="footer-link" data-i18n="footer.music">Music</a>
+      <a href="about.html" class="footer-link" data-i18n="footer.about">About</a>
+      <a href="contact.html" class="footer-link" data-i18n="footer.contact">Contact</a>
+      <a href="impressum.html" class="footer-link" data-i18n="footer.impressum">Impressum</a>
+      <a href="privacy.html" class="footer-link" data-i18n="footer.privacy">Privacy</a>
     </nav>
   </footer>
 

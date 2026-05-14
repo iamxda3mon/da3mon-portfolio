@@ -151,6 +151,36 @@
     color: var(--accent-primary);
 }
 
+/* --- Language toggle -------------------------------- */
+
+.lang-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: opacity 0.2s ease;
+}
+
+.lang-toggle:hover {
+    opacity: 0.7;
+}
+
+.lang-toggle .lang-sep {
+    opacity: 0.35;
+}
+
+.lang-toggle .lang-active {
+    color: var(--accent-primary);
+}
+
 /* --- Theme toggle ----------------------------------- */
 
 .theme-toggle {
@@ -183,7 +213,8 @@
 /* --- Breakpoint: tablet and phone ------------------- */
 
 @media (max-width: 1023px) {
-    .nav-group-right .nav-link {
+    .nav-group-right .nav-link,
+    .nav-group-right .lang-toggle {
         display: none;
     }
 

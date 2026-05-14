@@ -1,4 +1,5 @@
 import './theme.js';
+import { initI18n, applyLanguage } from './i18n.js';
 
 const hamburger = document.querySelector('.nav-hamburger');
 const menu = document.querySelector('.mobile-menu');
@@ -37,3 +38,27 @@ menu.querySelectorAll('.mobile-link').forEach((link) => {
 menu.addEventListener('click', (e) => {
     if (e.target === menu) closeMenu();
 });
+
+// Language toggle
+let currentLang = initI18n();
+
+const langBtn = document.createElement('button');
+langBtn.className = 'lang-toggle';
+langBtn.setAttribute('aria-label', 'Switch language');
+
+function updateLangBtn(lang) {
+    langBtn.innerHTML = lang === 'de'
+        ? '<span class="lang-active">DE</span><span class="lang-sep">|</span><span>EN</span>'
+        : '<span>DE</span><span class="lang-sep">|</span><span class="lang-active">EN</span>';
+}
+
+updateLangBtn(currentLang);
+
+langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'de' ? 'en' : 'de';
+    applyLanguage(currentLang);
+    updateLangBtn(currentLang);
+});
+
+const themeToggle = document.querySelector('.theme-toggle');
+if (themeToggle) themeToggle.before(langBtn);
