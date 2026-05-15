@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&display=swap" />
 
     <script>(function(){var t=localStorage.getItem('da3mon-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
+    <script>window.onSpotifyIframeApiReady=function(api){window._spotifyApi=api;if(window._onSpotifyApi)window._onSpotifyApi(api);};</script>
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
 
     <script type="importmap">
     {
@@ -42,7 +45,10 @@
   </head>
 
   <body data-page="home">
-    
+
+    <div class="parallax-bg parallax-bg--left"  aria-hidden="true"><img src="assets/landing-left.png"  alt=""></div>
+    <div class="parallax-bg parallax-bg--right" aria-hidden="true"><img src="assets/landing-right.png" alt=""></div>
+
     <header class="main-navbar">
       <a href="#landing" class="nav-link nav-home">
         <div class="home-wrapper">
@@ -109,10 +115,38 @@
       </section>
 
       <section id="music" class="music-landing">
-        <video id="music-video" class="music-video-bg" autoplay loop muted playsinline aria-hidden="true">
-          <source src="assets/siri-images/siri_4k_alpha.webm" type="video/webm">
-          <source src="assets/siri-images/siri_1080p_alpha.webm" type="video/webm">
-        </video>
+        <div id="music-player-card" class="music-player-card">
+          <div class="streaming-players">
+            <div class="spotify-wrapper" id="spotify-wrapper">
+              <div class="spotify-tile" id="spotify-tile">
+                <img src="https://cdn.simpleicons.org/spotify/D8B577" class="spotify-tile__logo" alt="" aria-hidden="true">
+                <a class="spotify-tile__link" href="https://open.spotify.com/track/1qfwUptRW9Bzg5sUIs5zAt" target="_blank" rel="noopener" aria-label="Open Sea Machine on Spotify">
+                  <img class="spotify-tile__cover" src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02688159c39ef032edae04f8c4" alt="Sea Machine cover art">
+                  <div class="spotify-tile__meta">
+                    <span class="spotify-tile__title">Sea Machine</span>
+                    <span class="spotify-tile__artist">Quantum Jellyfish</span>
+                  </div>
+                </a>
+                <button class="spotify-tile__play" id="spotify-play-btn" aria-label="Play Sea Machine">
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="streaming-secondary">
+              <a class="platform-link" href="https://music.apple.com/us/song/sea-machine/6762251934" target="_blank" rel="noopener" aria-label="Listen on Apple Music">
+                <img src="https://cdn.simpleicons.org/applemusic/D8B577" class="platform-logo" alt="" aria-hidden="true">
+                <span class="platform-name">Apple Music</span>
+                <svg class="platform-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+              <a class="platform-link" href="https://tidal.com/track/516252665" target="_blank" rel="noopener" aria-label="Listen on Tidal">
+                <img src="https://cdn.simpleicons.org/tidal/D8B577" class="platform-logo" alt="" aria-hidden="true">
+                <span class="platform-name">Tidal</span>
+                <svg class="platform-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="music-hero">
           <span class="music-eyebrow" data-i18n="brand.music_eyebrow">Pulse of</span>
           <h2 class="music-title" data-i18n="brand.music_title">Music</h2>
@@ -142,6 +176,11 @@
         <a href="html/privacy.html" class="footer-link" data-i18n="footer.privacy">Privacy</a>
       </nav>
     </footer>
+
+
+    <div id="spotify-audio-wrapper" aria-hidden="true">
+      <div id="spotify-embed-target"></div>
+    </div>
 
     <script type="module" src="js/main.js"></script>
   </body>

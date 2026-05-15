@@ -1,8 +1,11 @@
 .site-footer {
     position: relative;
-    z-index: 1;
+    z-index: 1000;
     padding: 3rem 8vw;
-    border-top: 1px solid color-mix(in srgb, var(--bg-secondary), transparent 30%);
+    background-color: color-mix(in srgb, var(--bg-primary), transparent 20%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid color-mix(in srgb, var(--bg-secondary), transparent 20%);
     display: flex;
     align-items: center;
     justify-content: space-between;

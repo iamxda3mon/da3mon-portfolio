@@ -89,7 +89,7 @@
 
 /* ── Light mode ────────────────────────────────────────── */
 [data-theme="light"] #nmap-terminal {
-    background: var(--bg-primary);
+    background: rgba(232, 213, 160, 0.45);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }

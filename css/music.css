@@ -7,21 +7,211 @@
     padding: 0 8vw;
 }
 
-.music-video-bg {
+.music-player-card {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
     width: 50%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
     opacity: 0;
-    z-index: 0;
+    text-decoration: none;
+}
+
+.streaming-players {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: min(420px, 85%);
+}
+
+.stream-embed {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+/* ── Spotify custom tile ──────────────────────────────────── */
+
+.spotify-wrapper {
+    position: relative;
+    height: 352px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.spotify-tile {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    z-index: 1;
+    width: 100%;
+}
+
+.spotify-tile__logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 18px;
+    height: 18px;
+}
+
+.spotify-tile__cover {
+    width: 148px;
+    height: 148px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.spotify-tile__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.spotify-tile__title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.spotify-tile__artist {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--text-primary), transparent 45%);
+}
+
+.spotify-tile__play {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.spotify-tile__play svg {
+    width: 18px;
+    height: 18px;
+    color: var(--bg-primary);
+}
+
+.spotify-tile__play .icon-play  { margin-left: 2px; }
+.spotify-tile__play .icon-pause { display: none; }
+
+.spotify-tile.is-playing .spotify-tile__play .icon-play  { display: none; }
+.spotify-tile.is-playing .spotify-tile__play .icon-pause { display: block; }
+
+.spotify-tile:hover .spotify-tile__play {
+    transform: scale(1.1);
+    background: var(--accent-secondary);
+}
+
+.spotify-tile__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.spotify-tile__link:hover {
+    opacity: 0.75;
+}
+
+#spotify-audio-wrapper {
+    position: fixed;
+    left: -9999px;
+    top: 0;
+    width: 300px;
+    height: 80px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.streaming-secondary {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.platform-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 0.9rem;
+    height: 80px;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.platform-link:hover {
+    background: color-mix(in srgb, var(--bg-secondary), var(--accent-secondary) 8%);
+}
+
+.platform-logo {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+.platform-name {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.platform-ext {
+    width: 13px;
+    height: 13px;
+    color: var(--accent-secondary);
+    flex-shrink: 0;
+}
+
+
+#music::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 12, 10, 0.45);
+    z-index: 1;
+    pointer-events: none;
+}
+
+[data-theme="light"] #music::before {
+    background: rgba(232, 213, 160, 0.45);
 }
 
 .music-hero {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 700px;
 }
 
@@ -73,8 +263,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .music-cta { transition: none; }
-    .music-video-bg { display: none; }
+    .music-cta,
+    .platform-link,
+    .spotify-tile__play,
+    .spotify-tile__link { transition: none; }
+    .music-player-card  { opacity: 1; }
+}
+
+@media (max-width: 1023px) {
+    .music-player-card { display: none; }
 }
 
 @media (max-width: 639px) {
