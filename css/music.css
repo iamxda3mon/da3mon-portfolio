@@ -206,7 +206,9 @@
 }
 
 [data-theme="light"] #music::before {
-    background: rgba(232, 213, 160, 0.45);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .music-hero {
@@ -258,8 +260,9 @@
     opacity: 0.6;
 }
 
+[data-theme="light"] .music-eyebrow,
 [data-theme="light"] .music-tagline {
-    color: var(--color-black);
+    color: #D8B577;
 }
 
 @media (prefers-reduced-motion: reduce) {

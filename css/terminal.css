@@ -89,9 +89,9 @@
 
 /* ── Light mode ────────────────────────────────────────── */
 [data-theme="light"] #nmap-terminal {
-    background: rgba(232, 213, 160, 0.45);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 [data-theme="light"] #nmap-terminal.visible {
@@ -99,8 +99,8 @@
 }
 
 [data-theme="light"] .term-chrome {
-    background: var(--bg-secondary);
-    border-bottom-color: rgba(44, 31, 8, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom-color: rgba(44, 31, 8, 0.12);
 }
 
 [data-theme="light"] .term-body    { color: #0D0C0A; }

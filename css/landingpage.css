@@ -87,6 +87,7 @@ h1 {
     text-transform: uppercase;
     pointer-events: none;
     user-select: none;
+    z-index: 2;
 }
 
 .scroll-hint--up   { top: 5rem; }
