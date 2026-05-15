@@ -9,8 +9,10 @@
 
 .music-video-bg {
     position: absolute;
-    inset: 0;
-    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
     height: 100%;
     object-fit: cover;
     opacity: 0;
@@ -44,7 +46,7 @@
 .music-tagline {
     font-family: var(--font-heading);
     font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    color: var(--color-black);
+    color: var(--text-primary);
     max-width: 40ch;
     line-height: 1.6;
     margin-bottom: 2.5rem;
@@ -64,6 +66,10 @@
 
 .music-cta:hover {
     opacity: 0.6;
+}
+
+[data-theme="light"] .music-tagline {
+    color: var(--color-black);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -36,7 +36,7 @@ function animate() {
   tMusicSmooth += (tMusicTarget - tMusicSmooth) * Math.min(1, delta * 2.8);
 
   if (videoEl) {
-    videoEl.style.opacity = smoothstep(tMusicSmooth) * 0.60;
+    videoEl.style.opacity = smoothstep(tMusicSmooth);
   }
 }
 
