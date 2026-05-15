@@ -146,7 +146,7 @@ function animate() {
   }
 
   if (videoEl) {
-    videoEl.style.opacity = tS * (isLight ? 0.45 : 0.55);
+    videoEl.style.opacity = tS * (isLight ? 0.20 : 0.18);
   }
 
   renderer.render(scene, camera);

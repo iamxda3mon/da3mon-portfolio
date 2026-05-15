@@ -5,6 +5,9 @@
     display: flex;
     align-items: center;
     padding: 0 8vw;
+    background-image: url('../assets/siri-images/siri_poster_1080.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .music-video-bg {
@@ -44,7 +47,7 @@
 .music-tagline {
     font-family: var(--font-heading);
     font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    color: var(--text-primary);
+    color: var(--color-black);
     max-width: 40ch;
     line-height: 1.6;
     margin-bottom: 2.5rem;
