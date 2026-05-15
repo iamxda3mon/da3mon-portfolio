@@ -40,21 +40,47 @@ const SESSIONS = [
       { t: 'Recovered........: 1/1 (100.00%)',                 c: 'done', p: 0   },
     ],
   },
+  {
+    cmd: 'help',
+    lines: [
+      { t: '',                                          c: '',    p: 80  },
+      { t: 'cd <section>   navigate to a section',     c: 'dim', p: 60  },
+      { t: 'ls             list sections',              c: 'dim', p: 60  },
+      { t: 'exit           leave interactive mode',     c: 'dim', p: 60  },
+      { t: '',                                          c: '',    p: 60  },
+      { t: 'click terminal to start typing',            c: 'hdr', p: 0   },
+    ],
+  },
 ];
+
+const NAV_MAP = {
+  music:    'html/music.html',
+  security: 'html/security.html',
+  about:    'html/about.html',
+  contact:  'html/contact.html',
+};
 
 let win      = null;
 let output   = null;
 let timer    = null;
-let phase    = 'idle'; // idle | typing | printing | done
+let phase    = 'idle';
 let sessionI = 0;
 let charI    = 0;
 let lineI    = 0;
 let cmdEl    = null;
 let curEl    = null;
 
+// ── Interactive mode ─────────────────────────────────────
+let interactive = false;
+let inputBuf    = '';
+let inputEl     = null;
+let inputCurEl  = null;
+
 function esc(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
+
+// ── Playback ─────────────────────────────────────────────
 
 function startTyping() {
   phase = 'typing';
@@ -137,7 +163,141 @@ function reset() {
   charI    = 0;
   if (output) output.innerHTML = '';
   cmdEl = curEl = null;
+  exitInteractive();
 }
+
+// ── Interactive mode ─────────────────────────────────────
+
+function enterInteractive() {
+  if (interactive) return;
+  interactive = true;
+  clearTimeout(timer);
+  output.innerHTML = '';
+  win.classList.add('interactive');
+  appendInputRow();
+  window.addEventListener('keydown', handleKey);
+}
+
+function exitInteractive() {
+  if (!interactive) return;
+  interactive = false;
+  inputBuf   = '';
+  inputEl    = null;
+  inputCurEl = null;
+  win.classList.remove('interactive');
+  window.removeEventListener('keydown', handleKey);
+}
+
+function appendInputRow() {
+  const row = document.createElement('div');
+  row.className = 'ts-row';
+  row.innerHTML = PROMPT_HTML;
+
+  inputEl    = document.createElement('span');
+  inputCurEl = document.createElement('span');
+  inputCurEl.className  = 'ts-cursor ts-blink';
+  inputCurEl.textContent = '▋';
+
+  row.appendChild(inputEl);
+  row.appendChild(inputCurEl);
+  output.appendChild(row);
+}
+
+function handleKey(e) {
+  if (!interactive) return;
+
+  if (e.key === 'Escape') {
+    exitInteractive();
+    start();
+    return;
+  }
+
+  if (e.key === 'Enter') {
+    if (inputCurEl) { inputCurEl.remove(); inputCurEl = null; }
+    const cmd = inputBuf.trim();
+    inputBuf  = '';
+    inputEl   = null;
+    execCommand(cmd);
+    return;
+  }
+
+  if (e.key === 'Backspace') {
+    e.preventDefault();
+    inputBuf = inputBuf.slice(0, -1);
+    if (inputEl) inputEl.textContent = inputBuf;
+    return;
+  }
+
+  if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown' ||
+      e.key === 'PageUp' || e.key === 'PageDown') {
+    e.preventDefault();
+  }
+
+  if (e.key.length === 1) {
+    inputBuf += e.key;
+    if (inputEl) inputEl.textContent = inputBuf;
+  }
+}
+
+function printResponse(text, cls) {
+  const div = document.createElement('div');
+  div.className = 'ts-row' + (cls ? ' ts-' + cls : '');
+  div.textContent = text;
+  output.appendChild(div);
+}
+
+function execCommand(cmd) {
+  const parts   = cmd.toLowerCase().split(/\s+/);
+  const command = parts[0];
+  const arg     = parts.slice(1).join(' ');
+
+  if (command === '') {
+    appendInputRow();
+    return;
+  }
+
+  if (command === 'cd') {
+    const dest = NAV_MAP[arg];
+    if (dest) {
+      printResponse(`Navigating to /${arg}...`, 'done');
+      setTimeout(() => { window.location.href = dest; }, 700);
+    } else if (arg === '..' || arg === '/' || arg === '~') {
+      printResponse('Already at root.', 'dim');
+      appendInputRow();
+    } else if (arg === '') {
+      appendInputRow();
+    } else {
+      printResponse(`cd: ${arg}: No such directory`, 'dim');
+      appendInputRow();
+    }
+    return;
+  }
+
+  if (command === 'ls') {
+    printResponse('music/  security/  about/  contact/', 'hdr');
+    appendInputRow();
+    return;
+  }
+
+  if (command === 'help') {
+    printResponse('cd <section>   navigate to a section', 'dim');
+    printResponse('ls             list sections',          'dim');
+    printResponse('exit           leave interactive mode', 'dim');
+    appendInputRow();
+    return;
+  }
+
+  if (command === 'exit' || command === 'quit') {
+    exitInteractive();
+    start();
+    return;
+  }
+
+  printResponse(`${esc(cmd)}: command not found`, 'dim');
+  appendInputRow();
+}
+
+// ── Scroll trigger ───────────────────────────────────────
 
 function onScroll() {
   if (!win || !output) return;
@@ -145,7 +305,7 @@ function onScroll() {
 
   if (tSec > 0.55) {
     win.classList.add('visible');
-    if (phase === 'idle') start();
+    if (phase === 'idle' && !interactive) start();
   } else if (tSec < 0.15) {
     win.classList.remove('visible');
     reset();
@@ -157,12 +317,16 @@ export function init() {
   win    = document.getElementById('nmap-terminal');
   output = document.getElementById('term-output');
   if (!win || !output) return;
+
+  win.addEventListener('click', () => { if (!interactive) enterInteractive(); });
+
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 }
 
 export function dispose() {
   window.removeEventListener('scroll', onScroll);
+  window.removeEventListener('keydown', handleKey);
   reset();
   win = output = null;
 }

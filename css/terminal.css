@@ -19,6 +19,11 @@
 
 #nmap-terminal.visible {
     opacity: 0.91;
+    pointer-events: auto;
+}
+
+#nmap-terminal.interactive {
+    cursor: text;
 }
 
 /* ── Window chrome ─────────────────────────────────────── */
@@ -52,7 +57,7 @@
 .term-body {
     padding: 12px 14px;
     padding-left: 8vw;
-    padding-top: calc(6rem + 12px);
+    padding-top: calc(4rem + 12px);
     height: calc(100% - 37px);
     max-width: 50vw;
     font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Courier New', monospace;
