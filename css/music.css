@@ -5,9 +5,6 @@
     display: flex;
     align-items: center;
     padding: 0 8vw;
-    background-image: url('../assets/siri-images/siri_poster_1080.png');
-    background-size: cover;
-    background-position: center;
 }
 
 .music-video-bg {
