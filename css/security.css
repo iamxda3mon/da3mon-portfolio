@@ -68,6 +68,36 @@
     .security-cta { transition: none; }
 }
 
+/* ── Tablet + Mobile: full-width bg ─────────────────────── */
+@media (max-width: 1023px) {
+    #security {
+        background: url('../assets/landing-right.png') center / cover no-repeat;
+    }
+
+    #security::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(13, 12, 10, 0.5);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    [data-theme="light"] #security::before {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
+}
+
+/* ── Tablet ──────────────────────────────────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+    #security {
+        padding: 0 6vw;
+    }
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
 @media (max-width: 639px) {
     #security {
         justify-content: flex-start;
@@ -84,12 +114,6 @@
 
     .security-tagline {
         margin-left: 0;
-    }
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-    #security {
-        padding: 0 6vw;
     }
 }
 

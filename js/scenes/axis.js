@@ -44,7 +44,11 @@ function animate() {
   tMusicSmooth += (tMusicTarget - tMusicSmooth) * Math.min(1, delta * 2.8);
 
   if (playerCard) {
-    playerCard.style.opacity = smoothstep(tMusicSmooth);
+    if (window.innerWidth >= 1024) {
+      playerCard.style.opacity = smoothstep(tMusicSmooth);
+    } else if (playerCard.style.opacity !== '') {
+      playerCard.style.opacity = '';
+    }
   }
 }
 

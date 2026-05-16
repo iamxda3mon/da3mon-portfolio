@@ -37,6 +37,14 @@
     text-align: center;
     z-index: 10;
     width: 100%;
+    overflow: hidden;
+}
+
+.slogan-top {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: clamp(1.5rem, 4vw, 5rem);
 }
 
 h1 {
@@ -113,6 +121,12 @@ h1 {
 
 @media (prefers-reduced-motion: reduce) {
     .scroll-hint-arrow { animation: none; }
+}
+
+@media (max-width: 1023px) {
+    .parallax-bg {
+        display: none;
+    }
 }
 
 @media (max-width: 639px) {

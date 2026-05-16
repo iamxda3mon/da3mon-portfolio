@@ -6,8 +6,10 @@ const translations = {
         'nav.contact': 'Kontakt',
 
         // Mobile menu
-        'mobile.about':   'About',
-        'mobile.contact': 'Kontakt',
+        'mobile.security': 'Security',
+        'mobile.music':    'Musik',
+        'mobile.about':    'About',
+        'mobile.contact':  'Kontakt',
 
         // Brand axis
         'brand.security_eyebrow': 'Art of',
@@ -166,8 +168,10 @@ const translations = {
         'nav.contact': 'Contact',
 
         // Mobile menu
-        'mobile.about':   'About',
-        'mobile.contact': 'Contact',
+        'mobile.security': 'Security',
+        'mobile.music':    'Music',
+        'mobile.about':    'About',
+        'mobile.contact':  'Contact',
 
         // Brand axis
         'brand.security_eyebrow': 'Art of',

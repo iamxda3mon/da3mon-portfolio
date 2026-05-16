@@ -273,22 +273,112 @@
     .music-player-card  { opacity: 1; }
 }
 
+/* ── Tablet + Mobile: full-width bg, horizontal Spotify bar ─ */
 @media (max-width: 1023px) {
-    .music-player-card { display: none; }
+    #music {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background: url('../assets/landing-left.png') center / cover no-repeat;
+    }
+
+    .music-player-card {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+        opacity: 1;
+    }
+
+    .spotify-wrapper {
+        height: auto;
+        overflow: visible;
+    }
+
+    .spotify-tile {
+        position: relative;
+        inset: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        min-height: 68px;
+        border-radius: 12px;
+    }
+
+    .spotify-tile__logo {
+        position: static;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+    }
+
+    .spotify-tile__link {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .spotify-tile__cover {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+    }
+
+    .spotify-tile__meta {
+        align-items: flex-start;
+        min-width: 0;
+    }
+
+    .spotify-tile__title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    .spotify-tile__play {
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .streaming-players {
+        width: 100%;
+    }
 }
 
+/* ── Tablet ──────────────────────────────────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+    #music {
+        padding: 5rem 6vw 3rem;
+        gap: 2.5rem;
+    }
+
+    .music-title {
+        font-size: min(9vw, 5rem);
+    }
+
+    .streaming-players {
+        width: min(400px, 100%);
+    }
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
 @media (max-width: 639px) {
     #music {
-        padding: 0 1.5rem;
+        padding: 4.5rem 1.5rem 2rem;
+        gap: 2rem;
     }
 
     .music-title {
         font-size: min(11vw, 4rem);
     }
-}
 
-@media (min-width: 640px) and (max-width: 1023px) {
-    #music {
-        padding: 0 6vw;
+    .streaming-secondary {
+        gap: 0.5rem;
     }
 }
