@@ -1,5 +1,28 @@
 import './nav.js';
 
+// ── Live platform stats ───────────────────────────────────────
+// stats.json is written by the GitHub Actions workflow (daily).
+// Falls back silently to whatever values are already in the HTML.
+fetch('../assets/stats.json')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(({ htb, thm }) => {
+        const set = (attr, val) => {
+            const el = document.querySelector(`[data-stat="${attr}"]`);
+            if (el) el.textContent = val;
+        };
+        if (htb) {
+            set('htb-machines', htb.machines);
+            set('htb-points',   htb.points);
+            set('htb-rank',     `Rank: ${htb.rank}`);
+        }
+        if (thm) {
+            set('thm-rooms',     thm.rooms);
+            set('thm-position',  thm.position);
+            set('thm-rank',      `Rank: ${thm.rank}`);
+        }
+    })
+    .catch(() => {});
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!reducedMotion) {

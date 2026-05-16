@@ -1,0 +1,70 @@
+name: Update Platform Stats
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # daily at 03:00 UTC
+  workflow_dispatch:        # manual trigger from Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch stats and write assets/stats.json
+        env:
+          HTB_TOKEN: ${{ secrets.HTB_API_TOKEN }}
+        run: |
+          python3 << 'PYEOF'
+          import json, os, urllib.request, urllib.error
+          from datetime import date
+
+          # Load existing file as fallback for any field that fails
+          try:
+              with open('assets/stats.json') as f:
+                  existing = json.load(f)
+          except Exception:
+              existing = {}
+
+          stats = {
+              'htb': existing.get('htb', {'machines': 0, 'points': 0, 'rank': 'Noob', 'updated': ''}),
+              # THM has no public API — edit the thm block here manually when needed
+              'thm': existing.get('thm', {'rooms': 0, 'points': 0, 'rank': 'Unknown', 'updated': ''}),
+          }
+
+          # HackTheBox
+          token = os.environ.get('HTB_TOKEN', '').strip()
+          if token:
+              req = urllib.request.Request(
+                  'https://labs.hackthebox.com/api/v4/user/profile/basic/2334281',
+                  headers={'Authorization': f'Bearer {token}', 'User-Agent': 'da3mon-stats/1.0'}
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=10) as r:
+                      p = json.load(r)['profile']
+                      stats['htb'] = {
+                          'machines': p.get('user_owns', 0) + p.get('system_owns', 0),
+                          'points':   p.get('points', 0),
+                          'rank':     p.get('rank', 'Noob'),
+                          'updated':  str(date.today()),
+                      }
+                      print(f"HTB ok — {stats['htb']}")
+              except Exception as e:
+                  print(f'HTB fetch failed (keeping existing): {e}')
+          else:
+              print('HTB_TOKEN not set, skipping HTB update')
+
+          with open('assets/stats.json', 'w') as f:
+              json.dump(stats, f, indent=2)
+          print(json.dumps(stats, indent=2))
+          PYEOF
+
+      - name: Commit if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update platform stats [skip ci]'
+          file_pattern: assets/stats.json

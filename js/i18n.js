@@ -33,9 +33,10 @@ const translations = {
         'sec.section_platforms': 'Plattformen',
         'sec.section_writeups':  'Write-ups',
         'sec.section_projects':  'Projekte',
-        'stats.machines': 'Maschinen',
-        'stats.points':   'Punkte',
-        'stats.rooms':    'Räume',
+        'stats.machines':    'Maschinen',
+        'stats.points':      'Punkte',
+        'stats.rooms':       'Räume',
+        'stats.global_rank': 'Globaler Rang',
 
         // Music page
         'music.section_platforms': 'Plattformen',
@@ -195,9 +196,10 @@ const translations = {
         'sec.section_platforms': 'Platforms',
         'sec.section_writeups':  'Write-ups',
         'sec.section_projects':  'Projects',
-        'stats.machines': 'Machines',
-        'stats.points':   'Points',
-        'stats.rooms':    'Rooms',
+        'stats.machines':    'Machines',
+        'stats.points':      'Points',
+        'stats.rooms':       'Rooms',
+        'stats.global_rank': 'Global Rank',
 
         // Music page
         'music.section_platforms': 'Platforms',
